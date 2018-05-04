@@ -1,4 +1,4 @@
-# passport-eveonline
+# passport-eveonline-sso
 
 [Passport](http://passportjs.org/) strategy for authenticating with [EVE Online](http://wwww.eveonline.com/)
 using the OAuth 2.0 API.
@@ -11,13 +11,13 @@ unobtrusively integrated into any application or framework that supports
 
 ## Install
 
-    $ npm install eve-scout/passport-eveonline
+    $ npm install eve-scout/passport-eveonline-sso
 
 ## Usage
 
 #### Create an Application
 
-Before using `passport-eveonline`, you must register your application with
+Before using `passport-eveonline-sso`, you must register your application with
 [EVE Online Developers site](https://developers.eveonline.com/)
 
 You will also need to configure an Endpoint redirect URI (`callbackURL`) and scopes your application has access to.
