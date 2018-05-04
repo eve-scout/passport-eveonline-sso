@@ -1,0 +1,10 @@
+docs/
+reports/
+
+# Mac OS X
+.DS_Store
+
+# Node.js
+yarn.lock
+node_modules
+npm-debug.log

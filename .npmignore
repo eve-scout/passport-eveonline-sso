@@ -1,0 +1,7 @@
+Makefile
+docs/
+examples/
+reports/
+test/
+
+.jshintrc

@@ -1,0 +1,11 @@
+{
+  "name": "passport-eveonline-sso-examples-login",
+  "version": "0.0.0",
+  "dependencies": {
+    "express": ">= 0.0.0",
+    "express-session": ">= 0.0.0",
+    "ejs": ">= 0.0.0",
+    "passport": ">= 0.0.0",
+    "passport-eveonline-sso": ">= 0.0.0"
+  }
+}
