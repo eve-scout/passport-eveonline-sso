@@ -36,10 +36,13 @@ complete authentication.
 passport.use(new EveOnlineSsoStrategy({
     clientID: EVEONLINE_CLIENT_ID,
     clientSecret: EVEONLINE_CLIENT_SECRET,
-    callbackURL: 'http://localhost:3000/oauth2/callback'
+    callbackURL: 'http://localhost:3000/auth/eveonline'
     scope: ''
   },
   function(accessToken, refreshToken, profile, cb) {
+    // We have a new authed session, you can now store and/or use the accessToken
+    // and refreshToken to call EVE Swagger Interface (ESI) end points
+
     return done(null, profile);
   }
 ));

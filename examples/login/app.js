@@ -3,9 +3,9 @@ const express = require('express')
   , util = require('util')
   , EveOnlineSsoStrategy = require('passport-eveonline-sso').Strategy;
 
-const EVEONLINE_SSO_CLIENT_ID = 'yourAppKey'
+const EVEONLINE_SSO_CLIENT_ID = 'yourAppKey';
 const EVEONLINE_SSO_CLIENT_SECRET = 'yourAppSecret';
-const EVEONLINE_SSO_CALLBACK_URL = 'http://localhost:' + (process.env.PORT || 3000) + '/auth/callback';
+const EVEONLINE_SSO_CALLBACK_URL = 'http://localhost:' + (process.env.PORT || 3000) + '/auth/eveonline/callback';
 const EVEONLINE_SSO_SCOPES = '';
 
 // Passport session setup.
@@ -104,24 +104,27 @@ app.get('/login', function(req, res) {
   res.render('login', { user: req.user });
 });
 
-// GET /auth
+// GET /auth/eveonline
 //   Use passport.authenticate() as route middleware to authenticate the
 //   request.  The first step in EVE Online authentication will involve
 //   redirecting the user to EVE Online.  After authorization, EVE Online
-//   will redirect the user back to this application at /auth/callback
-app.get('/auth',
+//   will redirect the user back to this application at /auth/eveonline/callback
+//   This path can be almost anything.
+app.get('/auth/eveonline',
   passport.authenticate('eveonline-sso'),
   function(req, res){
     // The request will be redirected to EVE Online for authentication, so this
     // function will not be called.
   });
 
-// GET /auth/callback
+// GET /auth/eveonline/callback
 //   Use passport.authenticate() as route middleware to authenticate the
 //   request.  If authentication fails, the user will be redirected back to the
 //   login page.  Otherwise, the primary route function function will be called,
 //   which, in this example, will redirect the user to the home page.
-app.get('/auth/callback', 
+//   This path is the same as specified in the application on the
+//   EVE Online Developers site. This is also the same as your callbackURL.
+app.get('/auth/eveonline/callback', 
   passport.authenticate('eveonline-sso', { failureRedirect: '/error' }),
   function(req, res) {
     res.redirect('/');
@@ -134,11 +137,11 @@ app.get('/logout', function(req, res){
 
 var server = app.listen(app.get('port'), function() {
   console.log('Express server listening on port ' + server.address().port);
-  console.log('Waiting for OAuth2 Callback at', EVEONLINE_SSO_CALLBACK_URL);
   console.log('');
-  console.log('Be sure to setup the OAuth2 client in Eve Online SSO with the following:')
+  console.log('Be sure to setup the OAuth2 client in EVE Online SSO with the following:')
   console.log('');
   console.log('Client ID:', EVEONLINE_SSO_CLIENT_ID);
   console.log('Client Secret:', EVEONLINE_SSO_CLIENT_SECRET);
+  console.log('CallbackURL:', EVEONLINE_SSO_CALLBACK_URL);
   console.log('Scopes:', EVEONLINE_SSO_SCOPES)
 });

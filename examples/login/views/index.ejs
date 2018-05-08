@@ -1,5 +1,5 @@
 <% if (! user) { %>
-	<p>Welcome! Please <a href="/auth">Login with Eve Online SSO</a>.</p>
+	<p>Welcome! Please <a href="/auth/eveonline">Login with Eve Online SSO</a>.</p>
 <% } else { %>
 	<p>Hello, <%= user.CharacterName %> you are logged in.</p>
 	<p>View your <a href="/profile">profile</a> or <a href="/logout">logout</a>.</p>
