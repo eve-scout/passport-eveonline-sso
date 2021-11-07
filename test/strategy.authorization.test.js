@@ -28,7 +28,7 @@ describe('Strategy#authorization', function() {
     });
   
     it('should be redirected', function() {
-      expect(url).to.equal('https://login.eveonline.com/oauth/authorize?response_type=code&redirect_uri=https%3A%2F%2Fwww.example.com%2Foath%2Fcallback&client_id=ABC123');
+      expect(url).to.equal('https://login.eveonline.com/v2/oauth/authorize?response_type=code&redirect_uri=https%3A%2F%2Fwww.example.com%2Foath%2Fcallback&client_id=ABC123');
     });
   }); // authorization request
 
